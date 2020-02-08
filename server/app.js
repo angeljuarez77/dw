@@ -23,6 +23,7 @@ app.post('/', async (req, res) => {
       url: `https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:${state.toLowerCase()},ocd-division/country:us/state:${state.toLowerCase()}/place:${spaceToUnderscore(city)}`,
     });
     console.log(request.data);
+    res.send(request.data);
   } catch(e) {
     console.log(e);
     res.status(500).json({ msg: e.message });
